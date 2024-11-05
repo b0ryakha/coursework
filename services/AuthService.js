@@ -1,27 +1,22 @@
-// services/AuthService.js
-const UserRepository = require('../repositories/userRepository');
-const bcrypt = require('bcrypt');
+const UserRepository = require("../repositories/UserRepository")
 
 class AuthService {
-  async register(email, password) {
-    const existingUser = await UserRepository.findUserByEmail(email);
-    if (existingUser) {
-      throw new Error('Пользователь уже существует');
+    static async register(email, password) {
+        const user = await UserRepository.createUser(email, password)
+        return { message: `Пользователь ${user.email} зарегистрирован` }
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    await UserRepository.createUser(email, hashedPassword);
-    return { message: 'Пользователь зарегистрирован' };
-  }
+    static async login(email, password) {
+        const user = await UserRepository.findUserByEmail(email)
+            
+        if (!user)
+            throw new Error("Пользователь не найден")
 
-  async login(email, password) {
-    const user = await UserRepository.findUserByEmail(email);
-    if (!user || !await bcrypt.compare(password, user.password)) {
-      throw new Error('Неверный email или пароль');
+        if (!await UserRepository.comparePassword(password, user.password))
+            throw new Error("Неверный email или пароль")
+
+        return user
     }
-
-    return user;
-  }
 }
 
-module.exports = new AuthService();
+module.exports = AuthService

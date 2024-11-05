@@ -1,15 +1,9 @@
-const MyRepository = require('../repositories/myRepository');
-const myRepository = new MyRepository();
+const UserRepository = require("../repositories/UserRepository")
 
 class MyService {
-  async getAllData() {
-    try {
-        const data = await myRepository.fetchData();
-      return data
-    } catch (error) {
-      throw new Error('Error fetching data');
+    static async getUsers() {
+        return await UserRepository.fetchUsers()
     }
-  }
 }
 
-module.exports = MyService;
+module.exports = MyService

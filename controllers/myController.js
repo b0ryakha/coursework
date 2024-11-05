@@ -1,15 +1,18 @@
-const MyService = require('../services/myService');
-const myService = new MyService();
+const MyService = require("../services/MyService")
 
 class MyController {
-  async getAll(req, res) {
-    try {
-      const data = await myService.getAllData();
-      res.render('index', { data });
-    } catch (error) {
-      res.status(500).send('Error loading page');
+    static async getMain(req, res) {
+        try {
+            const data = await MyService.getUsers()
+            res.render("index", { data })
+        } catch (error) {
+            res.json({ message: "Ошибка при чтении данных", error: error.message })
+        }
     }
-  }
+
+    static async getProtected(req, res) {
+        res.json({ message: "Добро пожаловать на защищенную страницу", user: req.user })
+    }
 }
 
-module.exports = new MyController();
+module.exports = MyController
