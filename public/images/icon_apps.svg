@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <path d="m7,0l-3,0a4,4 0 0 0 -4,4l0,3a4,4 0 0 0 4,4l3,0a4,4 0 0 0 4,-4l0,-3a4,4 0 0 0 -4,-4zm2,7a2,2 0 0 1 -2,2l-3,0a2,2 0 0 1 -2,-2l0,-3a2,2 0 0 1 2,-2l3,0a2,2 0 0 1 2,2l0,3z" fill="#ffffff" id="svg_1" transform="matrix(1 0 0 1 0 0)"/>
+  <path d="m20,0l-3,0a4,4 0 0 0 -4,4l0,3a4,4 0 0 0 4,4l3,0a4,4 0 0 0 4,-4l0,-3a4,4 0 0 0 -4,-4zm2,7a2,2 0 0 1 -2,2l-3,0a2,2 0 0 1 -2,-2l0,-3a2,2 0 0 1 2,-2l3,0a2,2 0 0 1 2,2l0,3z" fill="#ffffff" id="svg_2" transform="matrix(1 0 0 1 0 0)"/>
+  <path d="m7,13l-3,0a4,4 0 0 0 -4,4l0,3a4,4 0 0 0 4,4l3,0a4,4 0 0 0 4,-4l0,-3a4,4 0 0 0 -4,-4zm2,7a2,2 0 0 1 -2,2l-3,0a2,2 0 0 1 -2,-2l0,-3a2,2 0 0 1 2,-2l3,0a2,2 0 0 1 2,2l0,3z" fill="#ffffff" id="svg_3" transform="matrix(1 0 0 1 0 0)"/>
+  <path d="m20,13l-3,0a4,4 0 0 0 -4,4l0,3a4,4 0 0 0 4,4l3,0a4,4 0 0 0 4,-4l0,-3a4,4 0 0 0 -4,-4zm2,7a2,2 0 0 1 -2,2l-3,0a2,2 0 0 1 -2,-2l0,-3a2,2 0 0 1 2,-2l3,0a2,2 0 0 1 2,2l0,3z" fill="#ffffff" id="svg_4"/>
+ </g>
+</svg>
