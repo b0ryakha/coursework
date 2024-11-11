@@ -1,6 +1,6 @@
 ### Dependencies:
-- [Node.js](https://nodejs.org/en/download/package-manager)
-- [PostgreSQL](https://www.postgresql.org/download/windows/)
+- [Node.js](https://nodejs.org/en/download/prebuilt-installer)
+- [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 ### Startup:
 ```sh
