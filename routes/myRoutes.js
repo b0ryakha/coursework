@@ -17,6 +17,8 @@ const authMiddleware = (req, res, next) => {
 
 router.get("/", MyController.getMain)
 router.get("/protected", authMiddleware, MyController.getProtected)
+router.get("/authorization.ejs", MyController.getAuthorization)
+router.get("/registration.ejs", MyController.getRegistration)
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
 
