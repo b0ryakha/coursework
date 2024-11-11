@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
 
 app.set("view engine", "ejs")
+app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./routes/MyRoutes"))
 
 app.listen(process.env.PORT, () => {

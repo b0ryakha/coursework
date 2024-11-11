@@ -4,7 +4,7 @@ class MyController {
     static async getMain(req, res) {
         try {
             const data = await MyService.getUsers()
-            res.render("index", { data })
+            res.render("main", { data })
         } catch (error) {
             res.json({ message: "Ошибка при чтении данных", error: error.message })
         }
