@@ -8,7 +8,7 @@
 </head>
 <body>
       <header>
-        <div class="px-3 py-2 bg-dark text-white">
+        <div class="px-3 py-2 bg-dark text-white mb-3">
           <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
               <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none me-lg-auto">
@@ -19,94 +19,105 @@
     
               <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                 <li>
-                  <a href="#" class="nav-link text-white">
+                  <a href="/AdminPanel.ejs" class="nav-link text-white">
                     <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
-                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                    Панель инструментов
-                  </font></font></a>
+                    <font style="vertical-align: inherit;">
+                      Панель инструментов
+                    </font></a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#" class="nav-link text-white">
                     <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_apps.svg">
                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                    Продукция
-                  </font></font></a>
-                </li>
+                      Продукция
+                    </font></font></a>
+                </li> -->
                 <li>
                   <a href="#" class="nav-link text-white">
                     <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_hopping_cart.svg">
                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                    Корзина
-                  </font></font></a>
+                      Корзина
+                    </font></font></a>
+                </li>
+                <li>
+                  <a href="/authorization.ejs" class="nav-link text-white">
+                    <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user.svg">
+                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      Вход
+                    </font></font></a>
+                </li>
+                <li>
+                  <a href="/registration.ejs" class="nav-link text-white">
+                    <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user_add.svg">
+                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      Регистрация
+                    </font></font></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="px-3 py-2 border-bottom mb-3">
+        <!-- <div class="px-3 py-2 border-bottom mb-3">
           <div class="container d-flex flex-wrap justify-content-end">
     
             <div class="text-end">
-              <button type="button" class="btn btn-light link-body-emphasis me-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="/authorization.ejs">Авторизоваться</a></font></font></button>
-              <button type="button" class="btn btn-light link-body-emphasis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="/registration.ejs">Зарегистрироваться</a></font></font></button>
+
+              <a class="btn btn-dark me-2" href="/authorization.ejs" role="button">Вход</a>
+              <a class="btn btn-dark" href="/registration.ejs" role="button">Регистрация</a>
+
             </div>
           </div>
-        </div>
+        </div> -->
       </header>
-      <div class="row container-fluid m-2">
+      <div class="container">
+        <h1 class="mb-4 mt-3">Каталог</h1>
+        <div class="row">
 
-        <div class="col-2 card" style="width: 18rem;">
-          <img src="/images/item.jpg" class="card-img-top" alt="..." style=" height: 286px;">
-          <div class="card-body">
-            <h5 class="card-title">Название</h5>
-            <p class="card-text">XXX руб.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
+          <div class="col-2 card m-auto mb-3 ms-0" style="width: 19rem;">
+            <img src="/images/item.jpg" class=" mt-2" alt="..." style="border-radius:3px;">
+            <div class="card-body">
+              <h5 class="card-title">Название</h5>
+              <p class="card-text">XXX руб.</p>
+              <a href="#" class="btn btn-dark">В корзину</a>
+            </div>
           </div>
-        </div>
+  
+          <div class="col-2 card m-auto mb-3 ms-0" style="width: 19rem;">
+            <img src="/images/item.jpg" class=" mt-2" alt="..." style="border-radius:3px;">
+            <div class="card-body">
+              <h5 class="card-title">Название</h5>
+              <p class="card-text">XXX руб.</p>
+              <a href="#" class="btn btn-dark">В корзину</a>
+            </div>
+          </div>
+  
+          <div class="col-2 card m-auto mb-3 ms-0" style="width: 19rem;">
+            <img src="/images/item.jpg" class=" mt-2" alt="..." style="border-radius:3px;">
+            <div class="card-body">
+              <h5 class="card-title">Название</h5>
+              <p class="card-text">XXX руб.</p>
+              <a href="#" class="btn btn-dark">В корзину</a>
+            </div>
+          </div>
+  
+          <div class="col-2 card m-auto mb-3 ms-0" style="width: 19rem;">
+            <img src="/images/item.jpg" class=" mt-2" alt="..." style="border-radius:3px;">
+            <div class="card-body">
+              <h5 class="card-title">Название</h5>
+              <p class="card-text">XXX руб.</p>
+              <a href="#" class="btn btn-dark">В корзину</a>
+            </div>
+          </div>
 
-        <div class="col-2 card" style="width: 18rem;">
-          <img src="/images/item.jpg" class="card-img-top" alt="..." style=" height: 286px;">
-          <div class="card-body">
-            <h5 class="card-title">Название</h5>
-            <p class="card-text">XXX руб.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
+          <div class="col-2 card m-auto mb-3 ms-0" style="width: 19rem;">
+            <img src="/images/item.jpg" class=" mt-2" alt="..." style="border-radius:3px;">
+            <div class="card-body">
+              <h5 class="card-title">Название</h5>
+              <p class="card-text">XXX руб.</p>
+              <a href="#" class="btn btn-dark">В корзину</a>
+            </div>
           </div>
-        </div>
 
-        <div class="col-2 card" style="width: 18rem;">
-          <img src="/images/item.jpg" class="card-img-top" alt="..." style=" height: 286px;">
-          <div class="card-body">
-            <h5 class="card-title">Название</h5>
-            <p class="card-text">XXX руб.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
-          </div>
-        </div>
-
-        <div class="col-2 card" style="width: 18rem;">
-          <img src="/images/item.jpg" class="card-img-top" alt="..." style=" height: 286px;">
-          <div class="card-body">
-            <h5 class="card-title">Название</h5>
-            <p class="card-text">XXX руб.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
-          </div>
-        </div>
-
-        <div class="col-2 card" style="width: 18rem;">
-          <img src="/images/item.jpg" class="card-img-top" alt="..." style=" height: 286px;">
-          <div class="card-body">
-            <h5 class="card-title">Название</h5>
-            <p class="card-text">XXX руб.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
-          </div>
-        </div>
-        
-        <div class="col-2 card" style="width: 18rem;">
-          <img src="/images/item.jpg" class="card-img-top" alt="..." style=" height: 286px;">
-          <div class="card-body">
-            <h5 class="card-title">Название</h5>
-            <p class="card-text">XXX руб.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
-          </div>
         </div>
 
       </div>
