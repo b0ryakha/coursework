@@ -34,6 +34,22 @@ class UserRepository {
         }
     }
 
+    static async deleteUserById(id) {
+        try {
+            await pool.query("DELETE FROM users WHERE id = $1", [id]);
+        } catch (error) {
+            throw new Error("Ошибка при удалении пользователя: " + error.message)
+        }
+    }
+
+    static async deleteUsers() {
+        try {
+            await pool.query("DELETE FROM users");
+        } catch (error) {
+            throw new Error("Ошибка при очистки пользователей: " + error.message)
+        }
+    }
+
     static async hashPassword(password) {
         return await bcrypt.hash(password, 10)
     }

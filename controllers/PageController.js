@@ -1,4 +1,4 @@
-const MyService = require("../services/MyService")
+const PageService = require("../services/PageService")
 
 class PageController {
     static async main(req, res) {
@@ -20,7 +20,7 @@ class PageController {
         }
 
         try {
-            const data = await MyService.getUsers()
+            const data = await PageService.getUsers()
             res.render("admin_panel", { data })
         } catch (error) {
             res.json({ message: "Ошибка при чтении данных", error: error.message })

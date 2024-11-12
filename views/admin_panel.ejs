@@ -7,13 +7,72 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="offset-md-3 text-start" style="margin-top: 5%;">
-      <h2>Данные</h2>
-      <ul>
-        <% data.forEach(item => { %>
-            <li><%= item.email %> (ID: <%= item.id %>)</li>
-        <% }) %>
-      </ul>
+    <header>
+      <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none me-lg-auto">
+              <img src="/images/logo.png" alt="" class="bi d-block mx-auto mb-1" width="40" height="40">
+              <h1 class="justify-content-center nav-link text-white">ТехноШоп</h1>
+            </a>
+            
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"> Панель инструментов </font>
+                  </font>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_hopping_cart.svg">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"> Корзина </font>
+                  </font>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container mt-5">
+      <h2 class="text-center">Данные</h2>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(item => { %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= item.email %></td>
+              <td><%= item.role %></td>
+              <td>
+                <form action="/delete_user/<%= item.id %>" method="POST">
+                  <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <div class="text-center mb-3">
+        <form action="/delete_all_users" method="POST">
+          <button type="submit" class="btn btn-danger">Удалить всех пользователей</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
