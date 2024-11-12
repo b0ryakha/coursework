@@ -13,8 +13,7 @@ const createProductsTable = async () => {
         CREATE TABLE IF NOT EXISTS products (
             id SERIAL PRIMARY KEY,
             title VARCHAR(255) NOT NULL,
-            cost NUMERIC(10, 2) NOT NULL,
-            image_path VARCHAR(255)
+            cost NUMERIC(10, 2) NOT NULL
         )
     `
 

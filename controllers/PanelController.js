@@ -1,4 +1,5 @@
 const UserRepository = require("../repositories/UserRepository")
+const ProductRepository = require("../repositories/ProductRepository")
 
 class PanelController {
     static async deleteUser(req, res) {
@@ -16,6 +17,17 @@ class PanelController {
             res.json({ message: "Таблица пользователей была успешно очищена" })
         } catch (error) {
             res.json({ message: "Ошибка при удалении всех пользователей", error: error.message })
+        }
+    }
+
+    static async addProduct(req, res) {
+        try {
+            const { title, cost } = req.body
+            await ProductRepository.createProduct(title, cost)
+
+            res.json({ message: "Продукт был успешно добавлен" })
+        } catch (error) {
+            res.json({ message: "Ошибка при добавлении нового продукта", error: error.message })
         }
     }
 }

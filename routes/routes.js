@@ -26,5 +26,6 @@ router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
 router.post("/delete_user/:id", PanelController.deleteUser)
 router.post("/delete_all_users", PanelController.deleteAll)
+router.post("/add_product", PanelController.addProduct)
 
 module.exports = router

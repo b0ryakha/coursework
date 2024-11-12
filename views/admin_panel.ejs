@@ -73,6 +73,23 @@
           <button type="submit" class="btn btn-danger">Удалить всех пользователей</button>
         </form>
       </div>
+
+      <br>
+
+      <form action="/add_product" method="POST">
+        <div class="form-group">
+            <label for="title">Название продукта:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cost">Стоимость:</label>
+            <input type="number" step="0.01" class="form-control" id="cost" name="cost" required>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary">Создать продукт</button>
+      </form>
     </div>
   </body>
 </html>

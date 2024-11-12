@@ -1,10 +1,10 @@
 const pool = require("../products_db")
 
 class ProductRepository {
-    static async createProduct(title, cost, image_path) {
+    static async createProduct(title, cost) {
         try {
-            await pool.query("INSERT INTO products (title, cost, image_path) VALUES ($1, $2, $3)", [title, cost, image_path])
-            return { title: title, cost: cost, image_path: image_path }
+            await pool.query("INSERT INTO products (title, cost) VALUES ($1, $2)", [title, cost])
+            return { title: title, cost: cost }
         } catch (error) {
             throw new Error("Ошибка при создании продукта: " + error.message)
         }
@@ -20,7 +20,7 @@ class ProductRepository {
 
     static async fetchProducts() {
         try {
-            const result = await pool.query("SELECT id, title, cost, image_path FROM products")
+            const result = await pool.query("SELECT id, title, cost FROM products")
             return result.rows
         } catch (error) {
             throw new Error("Ошибка при чтении продуктов: " + error.message)
