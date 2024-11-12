@@ -11,15 +11,15 @@ class UserRepository {
         }
     }
 
-    static async createUser(email, password) {
+    static async createUser(email, password, role) {
         try {
             if (await this.findUserByEmail(email))
                 throw new Error("Пользователь с таким email уже существует")
 
             const hashedPassword = await this.hashPassword(password)
-            await pool.query("INSERT INTO users (email, password) VALUES ($1, $2)", [email, hashedPassword])
+            await pool.query("INSERT INTO users (email, password, role) VALUES ($1, $2, $3)", [email, hashedPassword, role])
 
-            return { email: email }
+            return { email: email, role: role }
         } catch (error) {
             throw new Error("Ошибка при создании пользователя: " + error.message)
         }
@@ -27,7 +27,7 @@ class UserRepository {
 
     static async fetchUsers() {
         try {
-            const result = await pool.query("SELECT id, email FROM users")
+            const result = await pool.query("SELECT id, email, role FROM users")
             return result.rows
         } catch (error) {
             throw new Error("Ошибка при чтении пользователей: " + error.message)

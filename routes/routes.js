@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const jwt = require("jsonwebtoken")
 
-const MyController = require("../controllers/MyController")
+const PageController = require("../controllers/PageController")
 const AuthController = require("../controllers/AuthController")
 
 const authMiddleware = (req, res, next) => {
@@ -11,14 +11,16 @@ const authMiddleware = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) return res.sendStatus(403)
         req.user = user
+        console.log(req.user)
         next()
     })
 }
 
-router.get("/", MyController.getMain)
-router.get("/protected", authMiddleware, MyController.getProtected)
-router.get("/authorization.ejs", MyController.getAuthorization)
-router.get("/registration.ejs", MyController.getRegistration)
+router.get("/", PageController.main)
+router.get("/admin_panel.ejs", authMiddleware, PageController.adminPanel)
+router.get("/authorization.ejs", PageController.authorization)
+router.get("/registration.ejs", PageController.registration)
+
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
 

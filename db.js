@@ -13,7 +13,8 @@ const createUsersTable = async () => {
         CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
             email VARCHAR(255) UNIQUE NOT NULL,
-            password VARCHAR(255) NOT NULL
+            password VARCHAR(255) NOT NULL,
+            role VARCHAR(5) NOT NULL DEFAULT 'user' CHECK (role IN ('admin', 'user'))
         )
     `
 
@@ -26,7 +27,7 @@ const createUsersTable = async () => {
 
 createUsersTable()
 
-process.on('SIGINT', async () => {
+process.on("SIGINT", async () => {
     await pool.end()
     process.exit(0)
 })

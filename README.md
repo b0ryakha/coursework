@@ -4,6 +4,7 @@
 
 ### Startup:
 ```sh
-# Make sure you have entered your postgre password in .env
-node server.js
+# customize .env for yourself
+# net start postgresql-x64-<VERSION>
+nodemon server.js
 ```

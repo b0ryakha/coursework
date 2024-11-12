@@ -1,92 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
-        <title>Document</title>
-    </head>
-
-    <body>
-        <header>
-            <div class="px-3 py-2 bg-dark text-white">
-              <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                  <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none me-lg-auto">
-                    <img src="/images/logo.png" alt="" class="bi d-block mx-auto mb-1" width="40" height="40" >
-                    <h1 class="justify-content-center nav-link text-white">ТехноШоп</h1>
-                  </a>
-                  
-        
-                  <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                    <li>
-                      <a href="#" class="nav-link text-white">
-                        <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
-                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Панель инструментов
-                      </font></font></a>
-                    </li>
-                    <!-- <li>
-                      <a href="#" class="nav-link text-white">
-                        <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_apps.svg">
-                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Продукция
-                      </font></font></a>
-                    </li> -->
-                    <li>
-                      <a href="#" class="nav-link text-white">
-                        <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_hopping_cart.svg">
-                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Корзина
-                      </font></font></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </header>
-
-          <div class="container-fluid offset-md-3 col-6" style="margin-top: 5%;">
-            <h2 class="mb-4">Вход</h2>
-            <form id="loginForm" action="/login" method="POST">
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
-                  <input type="email" class="form-control" id="loginEmail" name="email" required>
-                  <div id="emailHelp" class="form-text">Мы никогда не передадим ваш адрес электронной почты кому-либо еще.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label" >Пароль</label>
-                  <input type="password" class="form-control" id="loginPassword" name="password" required>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Войти</button>
-              </form>
-          </div>
-          
-
-        <!-- <h2>Логин</h2>
-        <form id="loginForm" action="/login" method="POST">
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="email" required><br>
-
-            <label for="loginPassword">Пароль:</label>
-            <input type="password" id="loginPassword" name="password" required><br>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none me-lg-auto">
+              <img src="/images/logo.png" alt="" class="bi d-block mx-auto mb-1" width="40" height="40">
+              <h1 class="justify-content-center nav-link text-white">ТехноШоп</h1>
+            </a>
             
-            <button type="submit">Войти</button>
-        </form> -->
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"> Панель инструментов </font>
+                  </font>
+                </a>
+              </li>
 
-
-
-
-        <div class="offset-md-3 text-start" style="margin-top: 5%;">
-            <h2>Данные</h2>
-
-            <ul>
-                <% data.forEach(item => { %>
-                    <li><%= item.email %> (ID: <%= item.id %>)</li>
-                <% }) %>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_hopping_cart.svg">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;"> Корзина </font>
+                  </font>
+                </a>
+              </li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid offset-md-3 col-6" style="margin-top: 5%;">
+      <h2 class="mb-4">Вход</h2>
+      <form id="loginForm" action="/login" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
+          <input type="email" class="form-control" id="loginEmail" name="email" required>
+          <div id="emailHelp" class="form-text">Мы никогда не передадим ваш адрес электронной почты кому-либо еще.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Пароль</label>
+          <input type="password" class="form-control" id="loginPassword" name="password" required>
         </div>
         
-    </body>
+        <button type="submit" class="btn btn-primary">Войти</button>
+      </form>
+    </div>
+  </body>
 </html>
