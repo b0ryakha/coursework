@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt")
-const pool = require("../db")
+const pool = require("../users_db")
 
 class UserRepository {
     static async findUserByEmail(email) {
@@ -34,7 +34,7 @@ class UserRepository {
         }
     }
 
-    static async deleteUserById(id) {
+    static async removeUserById(id) {
         try {
             await pool.query("DELETE FROM users WHERE id = $1", [id]);
         } catch (error) {
@@ -42,7 +42,7 @@ class UserRepository {
         }
     }
 
-    static async deleteUsers() {
+    static async removeUsers() {
         try {
             await pool.query("DELETE FROM users");
         } catch (error) {

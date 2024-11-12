@@ -21,7 +21,7 @@ const createUsersTable = async () => {
     try {
         await pool.query(query)
     } catch (error) {
-        console.error("Ошибка при создании таблицы:", error)
+        console.error("Ошибка при создании таблицы пользователей:", error)
     }
 }
 
@@ -29,7 +29,6 @@ createUsersTable()
 
 process.on("SIGINT", async () => {
     await pool.end()
-    process.exit(0)
 })
 
 module.exports = pool

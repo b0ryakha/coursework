@@ -16,7 +16,7 @@ const authMiddleware = (req, res, next) => {
     })
 }
 
-router.get("/", PageController.main)
+router.get("/", PageController.catalog)
 router.get("/admin_panel.ejs", authMiddleware, PageController.adminPanel)
 router.get("/authorization.ejs", PageController.authorization)
 router.get("/registration.ejs", PageController.registration)

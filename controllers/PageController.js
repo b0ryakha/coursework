@@ -1,8 +1,13 @@
 const PageService = require("../services/PageService")
 
 class PageController {
-    static async main(req, res) {
-        res.render("main")
+    static async catalog(req, res) {
+        try {
+            const data = await PageService.products()
+            res.render("catalog", { data })
+        } catch (error) {
+            res.json({ message: "Ошибка при чтении данных", error: error.message })
+        }
     }
 
     static async authorization(req, res) {
@@ -20,7 +25,7 @@ class PageController {
         }
 
         try {
-            const data = await PageService.getUsers()
+            const data = await PageService.users()
             res.render("admin_panel", { data })
         } catch (error) {
             res.json({ message: "Ошибка при чтении данных", error: error.message })

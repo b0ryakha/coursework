@@ -5,6 +5,6 @@
 ### Startup:
 ```sh
 # customize .env for yourself
-# net start postgresql-x64-<VERSION>
+# net start postgresql-x64-17
 nodemon server.js
 ```
