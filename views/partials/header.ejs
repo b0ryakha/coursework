@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
+    <title>ТехноШоп</title>
+  </head>
+  <body>
+    <header>
+      <div class="px-3 py-2 bg-dark text-white mb-3">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none me-lg-auto">
+              <img src="/images/logo.png" alt="" class="bi d-block mx-auto mb-1" width="40" height="40">
+              <h1 class="justify-content-center nav-link text-white">ТехноШоп</h1>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              
+                <% if (req.user && req.user.role == "admin") {%>
+                    <li>
+                        <a href="/admin_panel.ejs" class="nav-link text-white">
+                            <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
+                            <font style="vertical-align: inherit;"> Панель инструментов</font>
+                        </a>
+                    </li>
+                <% } %>
+                
+                <li>
+                    <a href="/authorization.ejs" class="nav-link text-white">
+                    <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user.svg">
+                    <font style="vertical-align: inherit;">Вход</font>
+                    </a>
+                </li>
+                <li>
+                    <a href="/registration.ejs" class="nav-link text-white">
+                    <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user_add.svg">
+                    <font style="vertical-align: inherit;">Регистрация</font>
+                    </a>
+                </li>
+
+                <% if (req.user) { %>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                        <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user.svg">
+                        <font style="vertical-align: inherit;"><%= req.user.email %> - <%= req.user.role %></font>
+                        </a>
+                    </li>
+                <% } %>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+</body>
+</html>

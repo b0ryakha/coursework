@@ -4,22 +4,22 @@ class PageController {
     static async catalog(req, res) {
         try {
             const data = await PageService.products()
-            res.render("catalog", { data })
+            res.render("catalog", { data, req })
         } catch (error) {
             res.json({ message: "Ошибка при чтении данных", error: error.message })
         }
     }
 
     static async authorization(req, res) {
-        res.render("authorization")
+        res.render("authorization", { req })
     }
 
     static async registration(req, res) {
-        res.render("registration")
+        res.render("registration", { req })
     }
 
     static async basket(req, res) {
-        res.render("basket")
+        res.render("basket", { req })
     }
 
     static async adminPanel(req, res) {
@@ -30,7 +30,7 @@ class PageController {
 
         try {
             const data = await PageService.users()
-            res.render("admin_panel", { data })
+            res.render("admin_panel", { data, req })
         } catch (error) {
             res.json({ message: "Ошибка при чтении данных", error: error.message })
         }

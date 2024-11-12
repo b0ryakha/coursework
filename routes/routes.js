@@ -16,11 +16,11 @@ const authMiddleware = (req, res, next) => {
     })
 }
 
-router.get("/", PageController.catalog)
+router.get("/", authMiddleware, PageController.catalog)
 router.get("/admin_panel.ejs", authMiddleware, PageController.adminPanel)
-router.get("/authorization.ejs", PageController.authorization)
-router.get("/registration.ejs", PageController.registration)
-router.get("/basket.ejs", PageController.basket)
+router.get("/authorization.ejs", authMiddleware, PageController.authorization)
+router.get("/registration.ejs", authMiddleware, PageController.registration)
+router.get("/basket.ejs", authMiddleware, PageController.basket)
 
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
