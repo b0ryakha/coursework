@@ -20,6 +20,7 @@ router.get("/", PageController.catalog)
 router.get("/admin_panel.ejs", authMiddleware, PageController.adminPanel)
 router.get("/authorization.ejs", PageController.authorization)
 router.get("/registration.ejs", PageController.registration)
+router.get("/basket.ejs", PageController.basket)
 
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)

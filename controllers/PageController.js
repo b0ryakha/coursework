@@ -18,6 +18,10 @@ class PageController {
         res.render("registration")
     }
 
+    static async basket(req, res) {
+        res.render("basket")
+    }
+
     static async adminPanel(req, res) {
         if (req.user.role != "admin") {
             res.json({ message: "У текущего пользователя не достаточно прав", error: `${req.user.role} != "admin"` })
