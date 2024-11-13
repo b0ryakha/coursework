@@ -9,7 +9,7 @@ class PageService {
 
     static async products() {
         const data = await ProductRepository.fetchProducts()
-        return data.sort((a, b) => a.role.localeCompare(b.role))
+        return data
     }
 }
 

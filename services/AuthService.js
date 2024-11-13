@@ -4,7 +4,11 @@ const jwt = require("jsonwebtoken")
 class AuthService {
     static async register(email, password, role) {
         const user = await UserRepository.createUser(email, password, role)
-        return { message: `Пользователь ${user.email} зарегистрирован` }
+        
+        if (!user)
+            throw new Error("Ошибка при создании пользователя")
+
+        return user
     }
 
     static async login(email, password) {

@@ -7,9 +7,16 @@ class AuthController {
             if (!email || !password)
                 throw new Error("Email и пароль обязательны")
 
-            res.json(await AuthService.register(email, password, role))
+            const user = await AuthService.register(email, password, role)
+            const { _, token } = await AuthService.login(email, password)
+            res.cookie("token", token, { httpOnly: true, secure: true });
+
+            if (user.role == "admin")
+                return res.redirect("/admin_panel")
+            else
+                return res.redirect("/")
         } catch (error) {
-            res.json({ message: "Ошибка при регистрации", error: error.message })
+            return res.json({ message: "Ошибка при регистрации", error: error.message })
         }
     }
 
@@ -19,12 +26,12 @@ class AuthController {
             if (!email || !password)
                 throw new Error("Email и пароль обязательны")
     
-            const { user, token } = await AuthService.login(email, password)
+            const { _, token } = await AuthService.login(email, password)
             res.cookie("token", token, { httpOnly: true, secure: true });
 
-            res.json({ message: "Авторизация успешна" })
+            return res.redirect("/")
         } catch (error) {
-            res.json({ message: "Ошибка при авторизации", error: error.message })
+            return res.json({ message: "Ошибка при авторизации", error: error.message })
         }
     }    
 }
