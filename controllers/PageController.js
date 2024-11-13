@@ -1,4 +1,5 @@
 const PageService = require("../services/PageService")
+const ProductRepository = require("../repositories/ProductRepository")
 
 class PageController {
     static async catalog(req, res) {
@@ -19,7 +20,10 @@ class PageController {
     }
 
     static async order(req, res) {
-        res.render("order", { user: req.user })
+        res.render("order", {
+            user: req.user,
+            product: await ProductRepository.findProductById(req.params.id)
+        })
     }
 
     static async adminPanel(req, res) {

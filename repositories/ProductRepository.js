@@ -1,6 +1,15 @@
 const pool = require("../products_db")
 
 class ProductRepository {
+    static async findProductById(id) {
+        try {
+            const result = await pool.query("SELECT * FROM products WHERE id = $1", [id])
+            return result.rows[0]
+        } catch (error) {
+            throw new Error("Ошибка при поиске продукта: " + error.message)
+        }
+    }
+
     static async createProduct(title, cost) {
         try {
             await pool.query("INSERT INTO products (title, cost) VALUES ($1, $2)", [title, cost])

@@ -15,17 +15,16 @@
           <h2 class="text-center mb-4">Заказ</h2>
           <form action="/add_product" method="POST">
             <div class="form-group mb-3">
-              <p>Название продукта: </p>
+              <p>Название продукта: <%- product.title %></p>
             </div>
 
             <div class="form-group mb-3">
-              <p>Стоимость: </p>
+              <p>Стоимость: <%- product.cost %></p>
             </div>
 
             <button type="submit" class="btn btn-dark">Купить</button>
           </form>
         </div>
       </div>
-
   </body>
 </html>  

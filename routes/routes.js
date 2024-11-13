@@ -36,7 +36,7 @@ router.get("/", pseudoMiddleware, PageController.catalog)
 router.get("/admin_panel", authMiddleware, PageController.adminPanel)
 router.get("/authorization", PageController.authorization)
 router.get("/registration", PageController.registration)
-router.get("/order", PageController.order)
+router.get("/order/:id", PageController.order)
 
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)

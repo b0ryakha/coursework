@@ -18,11 +18,11 @@
             <div class="card-body">
               <h5 class="card-title"><%= item.title %></h5>
               <p class="card-text"><%= item.cost %> руб.</p>
-              <a href="/order" class="btn btn-dark">Заказать</a>
+              <a href="/order/<%= item.id %>" class="btn btn-dark">Заказать</a>
             </div>
           </div>
         <% }); %>
       </div>
-    </div>
+    </div>    
   </body>
 </html>
