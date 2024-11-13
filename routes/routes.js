@@ -5,6 +5,12 @@ const PageController = require("../controllers/PageController")
 const AuthController = require("../controllers/AuthController")
 const PanelController = require("../controllers/PanelController")
 
+// f*** security
+router.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://getbootstrap.com;")
+    next()
+});
+
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.token
     if (!token) return res.sendStatus(401)
@@ -23,6 +29,7 @@ router.get("/registration", PageController.registration)
 
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
+router.post("/logout", AuthController.logout)
 router.post("/delete_user/:id", authMiddleware, PanelController.deleteUser)
 router.post("/delete_all_users", authMiddleware, PanelController.deleteAll)
 router.post("/add_product", authMiddleware, PanelController.addProduct)

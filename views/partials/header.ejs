@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" defer></script>
+
     <title>ТехноШоп</title>
   </head>
   <body>
@@ -17,40 +20,49 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                <% if (user && user.role == "admin") {%>
-                    <li>
-                        <a href="/admin_panel" class="nav-link text-white">
-                            <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
-                            <font style="vertical-align: inherit;"> Панель инструментов</font>
-                        </a>
-                    </li>
-                <% } %>
-                
+              <% if (user && user.role == "admin") { %>
                 <li>
-                    <a href="/authorization" class="nav-link text-white">
+                  <a href="/admin_panel" class="nav-link text-white">
+                    <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_settings.svg">
+                    <font style="vertical-align: inherit;">Панель инструментов</font>
+                  </a>
+                </li>
+              <% } %>
+              
+              <% if (!user) { %>
+                <li>
+                  <a href="/authorization" class="nav-link text-white">
                     <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user.svg">
                     <font style="vertical-align: inherit;">Вход</font>
-                    </a>
+                  </a>
                 </li>
                 <li>
-                    <a href="/registration" class="nav-link text-white">
+                  <a href="/registration" class="nav-link text-white">
                     <img class="bi d-block mx-auto mb-1" width="24" height="24" src="/images/icon_user_add.svg">
                     <font style="vertical-align: inherit;">Регистрация</font>
-                    </a>
+                  </a>
                 </li>
+              <% } %>
 
-                <% if (user) { %>
+              <% if (user) { %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="bi d-block mx-auto mb-1 rounded-circle" width="24" height="24" src="/images/noimg.webp" style="border-radius: 50%;">
+                    <font style="vertical-align: inherit;"><%= user.email %> - <%= user.role %></font>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="userDropdown">
                     <li>
-                        <a href="#" class="nav-link text-white">
-                        <img class="bi d-block mx-auto mb-1 rounded-circle" width="24" height="24" src="/images/noimg.webp" style="border-radius: 50%;">
-                        <font style="vertical-align: inherit;"><%= user.email %> - <%= user.role %></font>
-                        </a>
+                      <form class="dropdown-item" id="logoutForm" action="/logout" method="POST">
+                        <button type="submit" class="btn">Выйти</button>
+                      </form>
                     </li>
-                <% } %>
+                  </ul>
+                </li>
+              <% } %>
             </ul>
           </div>
         </div>
       </div>
     </header>
-</body>
+  </body>
 </html>

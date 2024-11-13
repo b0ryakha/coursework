@@ -33,7 +33,12 @@ class AuthController {
         } catch (error) {
             return res.json({ message: "Ошибка при авторизации", error: error.message })
         }
-    }    
+    }
+
+    static async logout(req, res) {
+        res.clearCookie("token", { httpOnly: true, secure: true })
+        return res.redirect("/")
+    }
 }
 
 module.exports = AuthController
