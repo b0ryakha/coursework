@@ -13,11 +13,10 @@ router.use((req, res, next) => {
 
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.token
-    if (!token) return res.sendStatus(401)
+    if (!token) return next()
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.redirect("/")
-        req.user = user
+        if (!err) req.user = user
         next()
     })
 }
