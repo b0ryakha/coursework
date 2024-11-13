@@ -11,7 +11,12 @@ const app = express()
 
 morgan.token("remote_addr", (req) => req.ip || req.socket.remoteAddress)
 
-const lstream = fs.createWriteStream(path.join(__dirname, "logs", "req.log"), { flags: "a" })
+const logs_dir = path.join(__dirname, "logs");
+if (!fs.existsSync(logs_dir))
+    fs.mkdirSync(logs_dir)
+
+const lstream = fs.createWriteStream(path.join(logs_dir, "req.log"), { flags: "a" });
+
 app.use(morgan(':remote_addr - - [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', { stream: lstream }))
 
 app.set("view engine", "ejs")
