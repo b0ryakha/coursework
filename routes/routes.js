@@ -22,7 +22,7 @@ const authMiddleware = (req, res, next) => {
     })
 }
 
-const pseudoMiddleware = (req, res, next) => {
+const identMiddleware = (req, res, next) => {
     const token = req.cookies.token
     if (!token) return next()
 
@@ -32,7 +32,7 @@ const pseudoMiddleware = (req, res, next) => {
     })
 }
 
-router.get("/", pseudoMiddleware, PageController.catalog)
+router.get("/", identMiddleware, PageController.catalog)
 router.get("/admin_panel", authMiddleware, PageController.adminPanel)
 router.get("/authorization", PageController.authorization)
 router.get("/registration", PageController.registration)
