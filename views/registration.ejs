@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
-    <title>ТехноШоп</title>
-  </head>
-  <body>
-    <%- include("partials/header") %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>ТехноШоп</title>
+  <style>
+    .registration-container {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 5%;
+    }
+  </style>
+</head>
+<body>
+  <%- include("partials/header") %>
 
-    <div class="container-fluid offset-md-3 col-6" style="margin-top: 5%;">
-      <h2 class="mb-4">Регистрация</h2>
-      <form id="registrationForm" action="/register" method="POST">
-        <div class="mb-3">
-          <label for="regEmail" class="form-label">Электронная почта</label>
-          <input type="email" class="form-control" id="regEmail" name="email" required>
-          <div id="emailHelp" class="form-text">Мы не передаем ваш адрес электронной почты кому-либо еще.</div>
-        </div>
+  <div class="container col-md-4 registration-container">
+    <h2 class="mb-4 text-center">Регистрация</h2>
+    <form id="registrationForm" action="/register" method="POST">
+      <div class="mb-3">
+        <label for="regEmail" class="form-label" style="font-weight: bold">Электронная почта</label>
+        <input type="email" class="form-control" id="regEmail" name="email" required>
+        <div id="emailHelp" class="form-text">Мы не передаем ваш адрес электронной почты кому-либо еще.</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="regPassword" class="form-label">Пароль</label>
-          <input type="password" class="form-control" id="regPassword" name="password" required>
-        </div>
+      <div class="mb-3">
+        <label for="regPassword" class="form-label" style="font-weight: bold">Пароль</label>
+        <input type="password" class="form-control" id="regPassword" name="password" required>
+      </div>
 
-        <div class="mb-3">
-          <label for="regRole" class="form-label">Роль</label>
-          <select class="form-select" id="regRole" name="role" required>
-              <option value="user" selected>Пользователь</option>
-              <option value="admin">Администратор</option>
-          </select>
-        </div>
+      <div class="mb-3">
+        <label for="regRole" class="form-label" style="font-weight: bold">Роль</label>
+        <select class="form-select" id="regRole" name="role" required>
+          <option value="user" selected>Пользователь</option>
+          <option value="admin">Администратор</option>
+        </select>
+      </div>
 
-        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-      </form>
-    </div>
-  </body>
+      <br>
+      <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+    </form>
+  </div>
+</body>
 </html>

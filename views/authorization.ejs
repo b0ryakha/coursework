@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>ТехноШоп</title>
-  </head>
-  <body>
-    <%- include("partials/header") %>
+    <style>
+      .login-container {
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 30px;
+          margin-top: 5%;
+      }
+    </style>
+</head>
+<body>
+  <%- include("partials/header") %>
 
-    <div class="container-fluid offset-md-3 col-6" style="margin-top: 5%;">
-      <h2 class="mb-4">Вход</h2>
-      <form id="loginForm" action="/login" method="POST">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
-          <input type="email" class="form-control" id="loginEmail" name="email" required>
-          <div id="emailHelp" class="form-text">Мы никогда не передадим ваш адрес электронной почты кому-либо еще.</div>
-        </div>
+  <div class="container col-md-4 login-container">
+    <h2 class="text-center">Вход</h2>
+    <form id="loginForm" action="/login" method="POST">
+      <div class="mb-3">
+        <label for="loginEmail" class="form-label" style="font-weight: bold">Электронная почта</label>
+        <input type="email" class="form-control" id="loginEmail" name="email" required>
+        <div id="emailHelp" class="form-text">Мы никогда не передадим ваш адрес электронной почты кому-либо еще.</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Пароль</label>
-          <input type="password" class="form-control" id="loginPassword" name="password" required>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Войти</button>
-      </form>
-    </div>
-  </body>
+      <div class="mb-3">
+        <label for="loginPassword" class="form-label" style="font-weight: bold">Пароль</label>
+        <input type="password" class="form-control" id="loginPassword" name="password" required>
+      </div>
+      
+      <br>
+      <button type="submit" class="btn btn-primary w-100">Войти</button>
+    </form>
+  </div>
+</body>
 </html>
