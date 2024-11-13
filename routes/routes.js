@@ -13,6 +13,17 @@ router.use((req, res, next) => {
 
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.token
+    if (!token) return res.status(401)
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        if (err) return res.status(403)
+        req.user = user
+        next()
+    })
+}
+
+const pseudoMiddleware = (req, res, next) => {
+    const token = req.cookies.token
     if (!token) return next()
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
@@ -21,7 +32,7 @@ const authMiddleware = (req, res, next) => {
     })
 }
 
-router.get("/", authMiddleware, PageController.catalog)
+router.get("/", pseudoMiddleware, PageController.catalog)
 router.get("/admin_panel", authMiddleware, PageController.adminPanel)
 router.get("/authorization", PageController.authorization)
 router.get("/registration", PageController.registration)
@@ -30,8 +41,8 @@ router.get("/order", PageController.order)
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
 router.post("/logout", AuthController.logout)
-router.post("/delete_user/:id", authMiddleware, PanelController.deleteUser)
-router.post("/delete_all_users", authMiddleware, PanelController.deleteAll)
-router.post("/add_product", authMiddleware, PanelController.addProduct)
+router.post("/delete_user/:id", pseudoMiddleware, PanelController.deleteUser)
+router.post("/delete_all_users", pseudoMiddleware, PanelController.deleteAll)
+router.post("/add_product", pseudoMiddleware, PanelController.addProduct)
 
 module.exports = router
