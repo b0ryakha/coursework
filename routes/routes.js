@@ -13,10 +13,10 @@ router.use((req, res, next) => {
 
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.token
-    if (!token) return res.status(401)
+    if (!token) return res.status(401).json("Пользователь не авторизован")
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403)
+        if (err) return res.status(403).json("Пользователь не авторизован")
         req.user = user
         next()
     })
@@ -36,7 +36,7 @@ router.get("/", pseudoMiddleware, PageController.catalog)
 router.get("/admin_panel", authMiddleware, PageController.adminPanel)
 router.get("/authorization", PageController.authorization)
 router.get("/registration", PageController.registration)
-router.get("/order/:id", PageController.order)
+router.get("/order/:id", authMiddleware, PageController.order)
 
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
