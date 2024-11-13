@@ -16,10 +16,10 @@ app.use(morgan(':remote_addr - - [:date[clf]] ":method :url HTTP/:http-version" 
 
 app.set("view engine", "ejs")
 app.use(express.json())
-app.use(cookies());
+app.use(cookies())
 app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")))
 app.use(require(path.join(__dirname, "routes", "routes")))
 
 app.listen(process.env.PORT, () => {

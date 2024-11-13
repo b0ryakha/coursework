@@ -5,60 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
     <title>ТехноШоп</title>
+    <style>
+      .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
     <%- include("partials/header") %>
 
-    <div class="container mt-5">
-      <h2 class="text-center">Данные</h2>
-      
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Действия</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% data.forEach(item => { %>
-            <tr>
-              <td><%= item.id %></td>
-              <td><%= item.email %></td>
-              <td><%= item.role %></td>
-              <td>
-                <form action="/delete_user/<%= item.id %>" method="POST">
-                  <button type="submit" class="btn btn-danger btn-sm" <% if (user.id === item.id) { %> disabled <% } %>>Удалить</button>
-                </form>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card p-4">
+            <h2 class="text-center mb-4">Создание продукта</h2>
+            <form action="/add_product" method="POST">
+              <div class="form-group mb-3">
+                <label for="title" style="font-weight: bold">Название продукта:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+              </div>
 
-      <div class="text-center mb-3">
-        <form action="/delete_all_users" method="POST">
-          <button type="submit" class="btn btn-danger">Удалить всех пользователей</button>
-        </form>
+              <div class="form-group mb-3">
+                <label for="cost" style="font-weight: bold">Стоимость:</label>
+                <input type="number" step="0.01" class="form-control" id="cost" name="cost" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Создать продукт</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card p-4">
+            <h2 class="text-center mb-4">Данные</h2>
+            
+            <table class="table table-striped">
+              <thead class="table-light">
+                <tr>
+                  <th>ID</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.forEach(item => { %>
+                  <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.email %></td>
+                    <td><%= item.role %></td>
+                    <td>
+                      <form action="/delete_user/<%= item.id %>" method="POST">
+                        <button type="submit" class="btn btn-danger btn-sm" <% if (user.id === item.id) { %> disabled <% } %>>Удалить</button>
+                      </form>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+
+            <div class="text-center mb-3">
+              <form action="/delete_all_users" method="POST">
+                <button type="submit" class="btn btn-danger">Удалить всех пользователей</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <br>
-
-      <form action="/add_product" method="POST">
-        <div class="form-group">
-            <label for="title">Название продукта:</label>
-            <input type="text" class="form-control" id="title" name="title" required>
-        </div>
-
-        <div class="form-group">
-            <label for="cost">Стоимость:</label>
-            <input type="number" step="0.01" class="form-control" id="cost" name="cost" required>
-        </div>
-
-        <br>
-        <button type="submit" class="btn btn-primary">Создать продукт</button>
-      </form>
     </div>
   </body>
 </html>
