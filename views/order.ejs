@@ -6,61 +6,60 @@
     <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
     <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <title>ТехноШоп</title>
+    <style>
+      .order-container {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-top: 5%;
+      }
+    </style>
   </head>
-  <body>
-    <%- include("partials/header") %>
-
-    <div class="offset-md-3 col-6 ">
-        <div class="card p-4">
-          <h2 class="text-center mb-4">Заказ</h2>
-          <form action="/add_product" method="POST">
-            <div class="row">
-                <div class="col">
-                    <img src="/images/noimg.webp" class="mt-2 col-4" alt="..." style="border-radius:3px;">
+  <body><%- include("partials/header") %> <div class="offset-md-3 col-6 order-container">
+      <h2 class="text-center mb-4">Заказ</h2>
+      <form action="/add_product" method="POST">
+        <div class="row align-items-center">
+          <div class="col-3 me-5">
+            <img src="/images/noimg.webp" class="img-fluid rounded" alt="..." style="border-radius: 3px;">
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Информация о продукте</h5>
+                <div class="form-group">
+                  <p class="mb-1">
+                    <strong>Название продукта:</strong><%- product.title %>
+                  </p>
                 </div>
-                <div class="col">
-                    <div class="form-group mb-3">
-                        <p>Название продукта: <%- product.title %></p>
-                    </div>
-        
-                    <div class="form-group mb-3">
-                        <p>Стоимость: <%- product.cost %></p>
-                    </div>
+                <div class="form-group">
+                  <p class="mb-1">
+                    <strong>Стоимость:</strong><%- product.cost %> руб.
+                  </p>
                 </div>
+              </div>
             </div>
-                
-            <hr class="dropdown-divider mb-3">
-
-            <div class="form-group mb-3">
-                <label for="title" style="font-weight: bold">ФИО</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="title" style="font-weight: bold">Контактный телефон</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-
-            <hr class="dropdown-divider mb-3">
-
-            <div class="form-group mb-3">
-                <label for="title" style="font-weight: bold">Индекс</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="title" style="font-weight: bold">Город</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="title" style="font-weight: bold">Адрес</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-
-            <button type="submit" class="btn btn-dark">Купить</button>
-          </form>
+          </div>
         </div>
-      </div>
+        <hr class="dropdown-divider mb-3">
+        <div class="form-group mb-3">
+          <label for="title" style="font-weight: bold">ФИО</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="title" style="font-weight: bold">Контактный телефон</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <hr class="dropdown-divider mb-3">
+        <div class="form-group mb-3">
+          <label for="title" style="font-weight: bold">Город</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="title" style="font-weight: bold">Адрес</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <button type="submit" class="btn btn-dark">Купить</button>
+      </form>
+    </div>
   </body>
 </html>
