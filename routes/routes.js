@@ -41,8 +41,8 @@ router.get("/order/:id", authMiddleware, PageController.order)
 router.post("/register", AuthController.register)
 router.post("/login", AuthController.login)
 router.post("/logout", AuthController.logout)
-router.post("/delete_user/:id", pseudoMiddleware, PanelController.deleteUser)
-router.post("/delete_all_users", pseudoMiddleware, PanelController.deleteAll)
-router.post("/add_product", pseudoMiddleware, PanelController.addProduct)
+router.post("/delete_user/:id", identMiddleware, PanelController.deleteUser)
+router.post("/delete_all_users", identMiddleware, PanelController.deleteAll)
+router.post("/add_product", identMiddleware, PanelController.addProduct)
 
 module.exports = router
