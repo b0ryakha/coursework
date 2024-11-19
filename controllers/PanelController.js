@@ -32,6 +32,16 @@ class PanelController {
             return res.json({ message: "Ошибка при добавлении нового продукта", error: error.message })
         }
     }
+
+    static async deleteProduct(req, res) {
+        try {
+            await ProductRepository.removeProductById(req.params.id)
+
+            return res.redirect("/")
+        } catch (error) {
+            return res.json({ message: "Ошибка при удалении продукта", error: error.message })
+        }
+    }
 }
 
 module.exports = PanelController

@@ -44,5 +44,6 @@ router.post("/logout", AuthController.logout)
 router.post("/delete_user/:id", identMiddleware, PanelController.deleteUser)
 router.post("/delete_all_users", identMiddleware, PanelController.deleteAll)
 router.post("/add_product", identMiddleware, PanelController.addProduct)
+router.post("/delete_product/:id", identMiddleware, PanelController.deleteProduct)
 
 module.exports = router

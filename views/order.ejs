@@ -17,7 +17,7 @@
   </head>
   <body><%- include("partials/header") %> <div class="offset-md-3 col-6 order-container">
       <h2 class="text-center mb-4">Заказ</h2>
-      <form action="/add_product" method="POST">
+      <form>
         <div class="row align-items-center">
           <div class="col-3 me-5">
             <img src="/images/noimg.webp" class="img-fluid rounded" alt="..." style="border-radius: 3px;">
@@ -28,12 +28,12 @@
                 <h5 class="card-title">Информация о продукте</h5>
                 <div class="form-group">
                   <p class="mb-1">
-                    <strong>Название продукта:</strong><%- product.title %>
+                    <strong>Название продукта: </strong><%- product.title %>
                   </p>
                 </div>
                 <div class="form-group">
                   <p class="mb-1">
-                    <strong>Стоимость:</strong><%- product.cost %> руб.
+                    <strong>Стоимость: </strong><%- product.cost %> руб.
                   </p>
                 </div>
               </div>

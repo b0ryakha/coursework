@@ -18,7 +18,19 @@
             <div class="card-body">
               <h5 class="card-title"><%= item.title %></h5>
               <p class="card-text"><%= item.cost %> руб.</p>
-              <a href="/order/<%= item.id %>" class="btn btn-dark">Заказать</a>
+
+              <div class="row">
+                <div class="col">
+                  <a href="/order/<%= item.id %>" class="btn btn-dark">Заказать</a>
+                </div>
+                <div class="col">
+                  <% if (user && user.role == "admin") { %>
+                  <form action="/delete_product/<%= item.id %>" method="POST">
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                  </form>
+                <% } %>
+                </div>
+              </div>
             </div>
           </div>
         <% }); %>
